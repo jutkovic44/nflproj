@@ -1,0 +1,63 @@
+name: NFL projections
+
+on:
+  schedule:
+    # times are UTC; ET is UTC-4 during the season (EDT)
+    - cron: '15 21 * * 4'   # Thu 5:15pm ET  - TNF
+    - cron: '0  15 * * 0'   # Sun 11:00am ET - early slate (post-inactives)
+    - cron: '5  18 * * 0'   # Sun 2:05pm ET  - late slate
+    - cron: '20 21 * * 0'   # Sun 5:20pm ET  - SNF
+    - cron: '15 21 * * 1'   # Mon 5:15pm ET  - MNF
+  workflow_dispatch:        # manual run button, works from the GitHub mobile site
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # nflverse data is ~20MB; cached between runs, refreshed by the pipeline
+      - uses: actions/cache@v4
+        with:
+          path: ~/nflproj_data
+          key: nflverse-${{ github.run_id }}
+          restore-keys: nflverse-
+
+      - name: Refresh data
+        run: python -m nflproj.cli refresh
+
+      - name: Leakage audit (blocks deploy on failure)
+        run: python -m nflproj.cli audit
+
+      - name: Project the next slate
+        run: python -m nflproj.cli project --next --dashboard public/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
