@@ -1,0 +1,28 @@
+{
+ "version": "V4-PRE-FIX",
+ "status": "diagnostic baseline \u2014 NOT production",
+ "known_defects": {
+  "carries_P50_coverage": 0.068,
+  "carries_coverage_error_pp": -43.2,
+  "carries_P50_MAE": 2.49,
+  "carries_P50_corr": 0.405,
+  "qb_passing_yards_P10_P90_coverage": 0.675,
+  "qb_attempts_P10_P90_coverage": 0.677,
+  "receptions_gt_targets_P50": 979,
+  "receptions_gt_targets_P90": 633
+ },
+ "pooled_coverage": {
+  "P10": 0.106,
+  "P25": 0.222,
+  "P50": 0.472,
+  "P75": 0.727,
+  "P90": 0.875
+ },
+ "crossing_rate_before_correction_pct": 6.61,
+ "files": {
+  "predictions_v4_prefix.parquet": "fac58fb555775c85e33b13426de52c326fb6cd61418f1a0ea8b742b27010feac",
+  "requirements.lock": "32d8582575658d2fcdbff171a8c59ae85afa34f75f452f51d68d44650d40d223",
+  "src/v4quantile.py": "e08810dcd633ed547d552d29a664f709adc53cd8855c1b642bcc70316a4ae289",
+  "src/run_v4.py": "a3b58bbc7c55b0b9a142d0bb7b978050177141d26519d4d3a54e586afe9a1e48"
+ }
+}

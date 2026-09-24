@@ -1,0 +1,174 @@
+{
+ "version": "V1-FROZEN-57-LEAKED",
+ "status": "HISTORICAL BENCHMARK ONLY \u2014 CONTAINS KNOWN LEAKAGE. Not a valid representation of the live forecasting system.",
+ "known_leakage": [
+  {
+   "features": [
+    "spread_line",
+    "total_line",
+    "implied_team_total"
+   ],
+   "type": "closing market data used as if available at an earlier prediction cutoff"
+  },
+  {
+   "features": [
+    "temp",
+    "wind"
+   ],
+   "type": "observed game-day weather used where only a forecast existed pregame"
+  },
+  {
+   "features": [
+    "is_dome"
+   ],
+   "type": "derived from game-day roof state ('closed') for retractable stadiums"
+  }
+ ],
+ "metrics": {
+  "skill_score": 57,
+  "graded_player_games": 14252,
+  "mae_improvement_vs_trailing3_pct": 5.8,
+  "mean_correlation": 0.627,
+  "td_calibration_error_pts": 2.7,
+  "population": "players at 40%+ trailing snap share"
+ },
+ "evaluation": {
+  "method": "walk-forward, retrain every 6 weeks",
+  "train_start": 2021,
+  "eval_seasons": [
+   2022,
+   2023,
+   2024,
+   2025,
+   2026
+  ],
+  "rows": 23672,
+  "live_sample_untouched": "2026 rows present for reporting only; never used for tuning"
+ },
+ "model": {
+  "algorithm": "HistGradientBoostingRegressor",
+  "params": {
+   "max_iter": 160,
+   "learning_rate": 0.09,
+   "max_depth": 5,
+   "min_samples_leaf": 40,
+   "l2_regularization": 1.0,
+   "max_features": 0.7,
+   "early_stopping": false,
+   "random_state": 7
+  },
+  "targets_skill": [
+   "targets",
+   "receptions",
+   "receiving_yards",
+   "carries",
+   "rushing_yards"
+  ],
+  "targets_qb": [
+   "attempts",
+   "passing_yards",
+   "passing_tds",
+   "passing_interceptions",
+   "carries",
+   "rushing_yards"
+  ],
+  "td": "Poisson rate -> P(>=1)=1-exp(-lambda) -> isotonic calibration"
+ },
+ "feature_count": 79,
+ "features": [
+  "targets_r3",
+  "targets_r8",
+  "targets_exp",
+  "receptions_r3",
+  "receptions_r8",
+  "receptions_exp",
+  "receiving_yards_r3",
+  "receiving_yards_r8",
+  "receiving_yards_exp",
+  "target_share_r3",
+  "target_share_r8",
+  "target_share_exp",
+  "air_yards_share_r3",
+  "air_yards_share_r8",
+  "air_yards_share_exp",
+  "receiving_air_yards_r3",
+  "receiving_air_yards_r8",
+  "receiving_air_yards_exp",
+  "carries_r3",
+  "carries_r8",
+  "carries_exp",
+  "rushing_yards_r3",
+  "rushing_yards_r8",
+  "rushing_yards_exp",
+  "attempts_r3",
+  "attempts_r8",
+  "attempts_exp",
+  "passing_yards_r3",
+  "passing_yards_r8",
+  "passing_yards_exp",
+  "passing_tds_r3",
+  "passing_tds_r8",
+  "passing_tds_exp",
+  "passing_interceptions_r3",
+  "passing_interceptions_r8",
+  "passing_interceptions_exp",
+  "total_tds_r3",
+  "total_tds_r8",
+  "total_tds_exp",
+  "rush_share_r3",
+  "rush_share_r8",
+  "rush_share_exp",
+  "snap_pct_r3",
+  "snap_pct_r8",
+  "snap_pct_exp",
+  "yards_per_target_r3",
+  "yards_per_target_r8",
+  "yards_per_target_exp",
+  "yards_per_carry_r3",
+  "yards_per_carry_r8",
+  "yards_per_carry_exp",
+  "routes_proxy_r3",
+  "routes_proxy_r8",
+  "routes_proxy_exp",
+  "def_rec_yds_allowed_r8",
+  "def_rush_yds_allowed_r8",
+  "def_tds_allowed_r8",
+  "def_targets_allowed_r8",
+  "def_carries_allowed_r8",
+  "is_home",
+  "spread_line",
+  "total_line",
+  "implied_team_total",
+  "rest",
+  "div_game",
+  "is_dome",
+  "temp",
+  "wind",
+  "games_played_prior",
+  "status_doubtful",
+  "status_questionable",
+  "dnp",
+  "vacated_target_share",
+  "vacated_rush_share",
+  "pos_QB",
+  "pos_RB",
+  "pos_WR",
+  "pos_TE",
+  "week"
+ ],
+ "data_sources": {
+  "stats/injuries/snaps": "nflverse-data releases",
+  "schedule+market+weather": "nflverse/nfldata games.csv"
+ },
+ "files": {
+  "requirements.lock": "32d8582575658d2fcdbff171a8c59ae85afa34f75f452f51d68d44650d40d223",
+  "accuracy_v1.json": "5715845b4c2fdfe0836eb2cde5c6acda46c3010b56e194420a160d04b6a613a5",
+  "predictions_v1.parquet": "337d8613cdd2178e4e82b20b97dd38daf4a6590e27f7fb42b69d0e916b2d6940",
+  "src/backtest.py": "e0abbc52e49e5ffa3df6c799c085a7765cdf06d9b5485eeade6283356cd42de4",
+  "src/project.py": "0466a20edaa8efb132f99b8cd1ed2e32943b486ef434109443fb9fc941c779b3",
+  "src/data.py": "9b4c7957081c488132f38176d614a32c08c86b503d4d7bc10a626388db980d57",
+  "src/features.py": "f034208a3d3323a92340979f473fe54d98bc6a16789159adb14f4ec8c3534d92",
+  "src/models.py": "30dc8ed549077a5fb60252b03b55d4d8cb3b864182bb3eeea882a350eb1c829a",
+  "src/scorecard.py": "9201a225c628e065daf9cdbdbd6d04e79695c027477136928b66818d32eda475"
+ }
+}

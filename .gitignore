@@ -1,0 +1,12 @@
+# large artifacts — regenerated, never committed
+*.parquet
+!versions/**/MANIFEST.json
+__pycache__/
+*.pyc
+public/
+dashboard.html
+runs/
+ablation/
+*.csv
+!requirements.txt
+nflproj_data/

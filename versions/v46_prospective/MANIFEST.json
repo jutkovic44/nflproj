@@ -1,0 +1,11 @@
+{
+ "version": "V4.6-PROSPECTIVE",
+ "type": "validation only, no model changes",
+ "population": "2026 weeks 1-2, 347 evaluable reception rows",
+ "frozen_from": "2023-2025 (A1 width-quintile factors and edges; C isotonic mappings)",
+ "files": {
+  "v46_probs_2026.parquet": "ac61cef4aa5729e1f59e96e5622a417a99f6273a9b588783f3cd8d49abaad41e",
+  "v46_a1_2026.parquet": "765725fced4c26ffee328bb6ef26d60bc5b64ffaffb332a9307606e86da9c3ec",
+  "preds_v43_2026.parquet": "5466b40ad6b24033a07f9fe51a924562747e1de40cc99c39ed4de38904ac9a40"
+ }
+}

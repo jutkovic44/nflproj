@@ -1,0 +1,19 @@
+{
+ "version": "V4.5-CONDITIONAL",
+ "status": "experimental, NOT live; V3.1 remains production",
+ "accepted": [
+  "A1 width-quintile dispersion scaling (distribution)",
+  "C isotonic threshold calibration (probabilities)"
+ ],
+ "rejected": [
+  "B continuous width function \u2014 inner interval collapsed to -15.9pp",
+  "D combined \u2014 degraded AUC at >=8 without beating C on log loss"
+ ],
+ "files": {
+  "v45.py": "0309ec437ab2413fb631173a812e1f8e8bb8eeb2f8609f03b6b319366b0cc81d",
+  "v45_A1_log.json": "6e2fe802a3c7b85108bf980b46193d2b93c65c960052dcc16ba6197250dc437f",
+  "run_v45.py": "f0b0a1fd5a793b114ad3572df6ab15b648bf544eed478c56ff623e3b6ea6cb48",
+  "v45_A1.parquet": "a95a71b37afcd815cf0cda7e09be4f9100f22f3fe08305077cbdcbb6510278d5",
+  "v45_A1_probs.parquet": "724a5b782b2bf203b1b0a8cd77a71de884fd68e4ac2519ec1643cca5fd1ff5da"
+ }
+}

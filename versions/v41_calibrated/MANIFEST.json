@@ -1,0 +1,17 @@
+{
+ "version": "V4.1-CALIBRATED",
+ "parent": "V4-PRE-FIX",
+ "point_baseline": "V3.1 (unchanged)",
+ "fixes": [
+  "conditional populations for structurally-zero statistics",
+  "split-conformal (CQR) interval calibration estimated inside the training window",
+  "receptions = targets x catch-rate quantile (structural coherence by construction)"
+ ],
+ "status": "NOT wired to live; V3.1 remains production point estimate",
+ "files": {
+  "requirements.lock": "32d8582575658d2fcdbff171a8c59ae85afa34f75f452f51d68d44650d40d223",
+  "predictions_v41.parquet": "069ce9b9ed66de0a1499d05f5ffd18d273bbb06da84ed3810cc13e519ef556fa",
+  "src/v4quantile.py": "ea072a4569a9c1651ed8f39acb5100595d9226f2e59b9c33cf83d2cc1fce1ab7",
+  "src/run_v41.py": "c07ccce027c8dd3190b36fdca9906775a95422f87f7e3fccd665e77551f15f4f"
+ }
+}

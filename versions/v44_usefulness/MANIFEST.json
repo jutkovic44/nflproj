@@ -1,0 +1,9 @@
+{
+ "version": "V4.4-MEASUREMENT",
+ "model_changes": "none",
+ "finding": "reception over-coverage is conditional: +0.9pp narrow intervals, +12.0pp wide",
+ "files": {
+  "v44_receptions.parquet": "4df0b5b2d586a5544ebfcb18b3b6e52668e2a7ed4e4b4b42412e046bcdff89ff",
+  "v44.py": "4451ca2a6b921fe74144498d737d6c52237b3efd92c7a0971c98cc48eaf0d180"
+ }
+}

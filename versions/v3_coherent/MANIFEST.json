@@ -1,0 +1,66 @@
+{
+ "version": "V3-TEAM-COHERENT",
+ "parent": "V2-CLEAN",
+ "architecture": "team environment -> team opportunity -> player share -> allocation -> EB efficiency -> production",
+ "accounting_identities_measured": {
+  "team_targets_per_pass_attempt": 0.9495,
+  "attempts_minus_targets_per_game": 1.67,
+  "note": "throwaways and spikes; measured over 4,300 team-weeks 2022-2025"
+ },
+ "eb_prior_strengths": {
+  "catch_rate": 30.0,
+  "ypr": 25.0,
+  "ypc": 40.0,
+  "ypa": 60.0
+ },
+ "metrics_2022_2025": {
+  "score": 64,
+  "n": 13836,
+  "mean_gain_pct": 7.2,
+  "mean_corr": 0.646,
+  "td_calibration_error_pts": 2.1
+ },
+ "comparison": {
+  "V1-FROZEN-57-LEAKED": {
+   "score": 56,
+   "gain": 5.7,
+   "corr": 0.628,
+   "td": 2.8
+  },
+  "V2-CLEAN": {
+   "score": 56,
+   "gain": 5.3,
+   "corr": 0.62,
+   "td": 2.2
+  }
+ },
+ "structural": {
+  "team_weeks": 2174,
+  "receptions>targets": 0,
+  "negative_opportunity_or_share": 0,
+  "targets>team_budget": 0,
+  "targets>pass_attempt_budget (impossible)": 0,
+  "team_weeks_with_no_projectable_qb": 15,
+  "targets>sum_of_projected_qb_attempts": 15,
+  "mean_abs_target_reconciliation": 0.0,
+  "max_abs_target_reconciliation": 0.0,
+  "mean_abs_carry_reconciliation": 0.0,
+  "max_abs_carry_reconciliation": 0.0,
+  "team_carries_outside_15_40": 0
+ },
+ "known_limitations": [
+  "15 team-weeks have no projectable QB (rookie debut, returning suspension); no attempt projection exists for them",
+  "WR/TE accuracy is flat to marginally worse than V2",
+  "role-transition sample (teammate out, 40%+ snaps) is only 6 rows \u2014 untestable"
+ ],
+ "files": {
+  "requirements.lock": "32d8582575658d2fcdbff171a8c59ae85afa34f75f452f51d68d44650d40d223",
+  "predictions_v3.parquet": "fc49997be3ae364712112b2bd64152971d40eaba45f336864d4bbacfb39dab50",
+  "src/v3eval.py": "e0d15f84889b4e3dcbdbb0e2371cfe287834a7e3e81ec276b5de60db2f0f5df9",
+  "src/hierarchy.py": "49f06386bd78209a93aef7450788d9283292f0e57de6d5edf9abf86b3357d73a",
+  "src/leaktest.py": "69545056aa46dcf8c9002451e073f3fb6a5dfe9474eadf4d7e7201c201a17d62",
+  "src/availability.py": "aa040fad6b35118e98df3543ab9c1ca5c8c991473d6c229b4761d5587801c9a8",
+  "src/features.py": "5a0784cc1122c2af3a3cc0f5368558e6f74d9187393467e407b48caf1bf07df6",
+  "src/models.py": "30dc8ed549077a5fb60252b03b55d4d8cb3b864182bb3eeea882a350eb1c829a"
+ }
+}

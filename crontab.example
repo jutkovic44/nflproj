@@ -1,0 +1,22 @@
+# nflproj — one run per slate, roughly 2-3 hours before kickoff, all times ET.
+# Install with:  crontab -e     (verify with: crontab -l)
+# Adjust PROJ to wherever you keep the package.
+PROJ=/Users/james/nflproj
+
+# Thursday Night Football — 5:15 PM Thu
+15 17 * * 4  cd $PROJ && ./run_slate.sh >> runs/cron.log 2>&1
+
+# Sunday 1:00 ET slate — 11:00 AM Sun (inactives drop 90 min out)
+0  11 * * 0  cd $PROJ && ./run_slate.sh >> runs/cron.log 2>&1
+
+# Sunday 4:00 ET slate — 2:05 PM Sun
+5  14 * * 0  cd $PROJ && ./run_slate.sh >> runs/cron.log 2>&1
+
+# Sunday Night Football — 5:20 PM Sun
+20 17 * * 0  cd $PROJ && ./run_slate.sh >> runs/cron.log 2>&1
+
+# Monday Night Football — 5:15 PM Mon
+15 17 * * 1  cd $PROJ && ./run_slate.sh >> runs/cron.log 2>&1
+
+# Optional: Saturday games, December and January only
+0  11 * * 6  cd $PROJ && ./run_slate.sh >> runs/cron.log 2>&1

@@ -1,0 +1,37 @@
+{
+ "version": "V3.1-PREGAME-STATE",
+ "parent": "V3-TEAM-COHERENT",
+ "changes": [
+  "pregame player-state layer (eligibility, role, starter designation)",
+  "EB positional prior rebuilt at each cutoff (leak fix)",
+  "eb_ypa restricted to quarterbacks"
+ ],
+ "metrics_2022_2025": {
+  "score": 64,
+  "n": 13836,
+  "mean_gain_pct": 7.3,
+  "mean_corr": 0.647,
+  "td_cal_pp": 2.2
+ },
+ "v3_prefix_same_window": {
+  "score": 64,
+  "mean_gain_pct": 7.2,
+  "mean_corr": 0.646,
+  "td_cal_pp": 2.1
+ },
+ "pregame_sources": {
+  "depth_charts_2025_plus": "daily snapshots, true ISO timestamp, backtest-reconstructable",
+  "depth_charts_2024_and_earlier": "week-level, NO timestamp, not used as timestamped evidence",
+  "weekly_rosters": "ACT/INA/RES/DEV/CUT, week-level, no transaction timestamp",
+  "injuries": "report_status, week-level, NO timestamp"
+ },
+ "files": {
+  "requirements.lock": "32d8582575658d2fcdbff171a8c59ae85afa34f75f452f51d68d44650d40d223",
+  "predictions_v31.parquet": "6676526d47d882318607cc1e13926c40dee5854815e38bf7785745141968ab5e",
+  "src/hierarchy.py": "f65bb62cff9a0819315fb565654b2d3f00541a91efdd88716f8b6b81a9838af7",
+  "src/project.py": "7563c42a0ea8b962113f09f00e8452affd510228ba883dc486263b53318523b7",
+  "src/pregame_state.py": "75ccbc4598199aa78bb31b33a943cc756015736fd0800a4a250f4b9c63fe0871",
+  "src/data.py": "822b74f12cd8875883b87db6a7ecebcc42b03bbec0be26d332c2b852f010964d",
+  "src/leaktest.py": "2fd111c88ad5183783ccd969673767a9cfa52c5a652f0c5326e7bcb8b27c26ec"
+ }
+}
