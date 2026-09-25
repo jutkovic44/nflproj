@@ -1,4 +1,7 @@
 pandas>=2.0
 pyarrow>=12.0
-scikit-learn>=1.3
+# 1.9.x regressed HistGradientBoosting binning: sliding_window_view(distinct_values, 2)
+# raises when a feature has a single distinct value in the training slice.
+# 1.8.x is also the version the entire V1-V4.6 validation history was produced on.
+scikit-learn>=1.3,<1.9
 certifi>=2024.0
